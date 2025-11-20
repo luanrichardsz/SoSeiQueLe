@@ -83,7 +83,7 @@ Abra o PHPMyAdmin (http://localhost/phpmyadmin).
 
 Vá na aba SQL e execute o script abaixo completo para criar o banco e popular com dados:
 
-```SQL
+```bash
 -- 1. Criação do Banco
 CREATE DATABASE IF NOT EXISTS soseiquele;
 USE soseiquele;
