@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestão - Só Sei Que Lê</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+        <style>
+            body { background-color: #f1f1f7; padding: 40px 20px; }
+            .navbar-custom { background: #fff; padding: 12px 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-radius: 12px; }
+            .card-custom { border-radius: 15px; padding: 30px; background: #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+            .menu-btn { border-radius: 30px; font-weight: 500; padding: 10px 25px; }
+            .section { display: none; animation: fade .3s ease-in-out; }
+            .section.active { display: block; }
+            @keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+            @media (max-width: 991px) { body { padding: 30px 15px; } .card-custom { padding: 25px; } }
+            @media (max-width: 768px) { .menu-btn-container { display: grid !important; grid-template-columns: 1fr 1fr; gap: 10px; } }
+            @media (max-width: 576px) { .menu-btn-container { grid-template-columns: 1fr; } .table-responsive { overflow-x: auto; } }
+        </style>
+    </head>
+
+    <body>
+
+        <nav class="navbar-custom mb-4">
+            <div class="container-fluid d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div class="d-none d-md-flex align-items-center" style="flex: 1;">
+                    <span class="fw-bold text-primary text-uppercase" style="font-size: 0.85rem; letter-spacing: 1px;">Sistema Admin</span>
+                </div>
+                <div class="d-flex justify-content-center align-items-center gap-2" style="flex: 1;">
+                    <i class="bi bi-journal-bookmark-fill text-primary fs-2"></i>
+                    <span class="fw-bold fs-4 text-dark text-nowrap" style="font-family: 'Georgia', serif;">Só Sei Que Lê</span>
+                </div>
+                <div class="d-flex justify-content-center justify-content-md-end align-items-center gap-3" style="flex: 1; width: 100%;">
+                    <a href="perfil.html" class="btn btn-outline-primary d-flex align-items-center gap-2" style="border-radius: 20px;">
+                        <i class="bi bi-person-circle"></i> <span class="d-none d-md-inline">Meu Perfil</span>
+                    </a>
+                    <button onclick="sair()" class="btn text-danger fw-semibold d-flex align-items-center gap-2" style="border:none; background:none;">
+                        <i class="bi bi-box-arrow-right fs-4"></i> <span class="d-none d-md-inline">Sair</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="d-flex justify-content-center gap-3 mb-4 menu-btn-container">
+                <button class="btn btn-primary menu-btn" onclick="showSection('create')">Criar Livro</button>
+                <button class="btn btn-success menu-btn" onclick="showSection('list')">Lista de Livros</button>
+            </div>
+
+            <div class="card-custom">
+                <div id="create" class="section active">
+                    <h4 id="tituloFormulario">Criar Livro</h4>
+                    <form id="formLivro">
+                        <input type="hidden" id="livroId">
+                        <div class="mb-3">
+                            <label class="form-label">Título</label>
+                            <input type="text" id="titulo" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Autor</label>
+                            <input type="text" id="autor" class="form-control" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Categoria</label>
+                                <select id="genero" class="form-select" required>
+                                    <option value="">Selecionar</option>
+                                    <option value="Ficção">Ficção</option>
+                                    <option value="Romance">Romance</option>
+                                    <option value="Técnico">Técnico</option>
+                                    <option value="Fantasia">Fantasia</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Ano</label>
+                                <input type="number" id="ano" class="form-control" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Preço (R$)</label>
+                                <input type="number" step="0.01" id="preco" class="form-control" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Salvar Livro</button>
+                        <button type="button" onclick="limparFormulario()" class="btn btn-secondary w-100 mt-2">Cancelar</button>
+                    </form>
+                </div>
+
+                <div id="list" class="section">
+                    <h4>Livros disponíveis</h4>
+                    <div class="table-responsive mt-3">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Título</th>
+                                    <th>Autor</th>
+                                    <th>Categoria</th>
+                                    <th>Preço (R$)</th>
+                                    <th class="text-end">Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaLivros"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const API_URL = 'http://localhost/SoSeiQueLe/Back';
+
+            if (!localStorage.getItem('usuario_logado')) {
+                window.location.href = '../../index.html'; 
+            }
+
+            function sair() {
+                localStorage.removeItem('usuario_logado');
+                window.location.href = '../../index.html'; 
+            }
+
+            function showSection(id) {
+                document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+                document.getElementById(id).classList.add('active');
+                if(id === 'list') carregarLivros();
+            }
+
+            async function carregarLivros() {
+                try {
+                    const resposta = await fetch(`${API_URL}/listar.php`);
+                    const livros = await resposta.json();
+                    const tbody = document.getElementById('tabelaLivros');
+                    tbody.innerHTML = '';
+
+                    livros.forEach(livro => {
+                        tbody.innerHTML += `
+                            <tr>
+                                <td class="fw-bold">${livro.titulo}</td>
+                                <td>${livro.autor}</td>
+                                <td><span class="badge bg-info text-dark">${livro.genero}</span></td>
+                                <td>R$ ${livro.preco}</td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-warning me-1" onclick="prepararEdicao('${livro.id}', '${livro.titulo}', '${livro.autor}', '${livro.genero}', '${livro.ano_publicacao}', '${livro.preco}')"><i class="bi bi-pencil-fill"></i></button>
+                                    <button class="btn btn-sm btn-danger" onclick="deletar('${livro.id}')"><i class="bi bi-trash-fill"></i></button>
+                                </td>
+                            </tr>`;
+                    });
+                } catch (error) { console.error("Erro:", error); }
+            }
+
+            document.getElementById('formLivro').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const id = document.getElementById('livroId').value;
+                const dados = {
+                    titulo: document.getElementById('titulo').value,
+                    autor: document.getElementById('autor').value,
+                    genero: document.getElementById('genero').value,
+                    ano_publicacao: document.getElementById('ano').value,
+                    preco: document.getElementById('preco').value
+                };
+
+                let url = `${API_URL}/criar.php`;
+                if(id) {
+                    url = `${API_URL}/atualizar.php`;
+                    dados.id = id;
+                }
+
+                try {
+                    const res = await fetch(url, { method: 'POST', body: JSON.stringify(dados) });
+                    const resultado = await res.json();
+                    alert(resultado.message);
+                    limparFormulario();
+                    showSection('list');
+                } catch (error) { alert("Erro ao salvar."); }
+            });
+
+            async function deletar(id) {
+                if(confirm("Tem certeza que deseja excluir?")) {
+                    await fetch(`${API_URL}/deletar.php`, { method: 'POST', body: JSON.stringify({ id: id }) });
+                    carregarLivros();
+                }
+            }
+            function prepararEdicao(id, titulo, autor, genero, ano, preco) {
+                document.getElementById('livroId').value = id;
+                document.getElementById('titulo').value = titulo;
+                document.getElementById('autor').value = autor;
+                document.getElementById('genero').value = genero;
+                document.getElementById('ano').value = ano;
+                document.getElementById('preco').value = preco;
+                document.getElementById('tituloFormulario').innerText = "Edit Book";
+                showSection('create');
+            }
+            function limparFormulario() {
+                document.getElementById('formLivro').reset();
+                document.getElementById('livroId').value = '';
+                document.getElementById('tituloFormulario').innerText = "Create Book";
+            }
+            carregarLivros();
+        </script>
+    </body>
+</html>
