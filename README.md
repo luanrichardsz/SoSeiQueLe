@@ -170,7 +170,7 @@ Abra o navegador e digite: http://localhost/SoSeiQueLe/
       </a>
     </td>
     <td align="center">
-      <a href="(https://github.com/KauaOliveira17">
+      <a href="https://github.com/KauaOliveira17">
         <img src="https://github.com/KauaOliveira17.png" width="100px;" alt="Foto de Kauã Felipe no GitHub"/>
         <br />
         <sub><b>Kauã Felipe</b></sub>
