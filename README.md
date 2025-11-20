@@ -163,8 +163,8 @@ Abra o navegador e digite: http://localhost/SoSeiQueLe/
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/Marcopolojr360](https://github.com/luanrichardsz">
-        <img src="http://github.com/luanrichardsz" width="100px;" alt="Foto de Luan Richard no GitHub"/>
+      <a href="https://github.com/luanrichardsz">
+        <img src="http://github.com/luanrichardsz.png" width="100px;" alt="Foto de Luan Richard no GitHub"/>
         <br />
         <sub><b>Luan Richard</b></sub>
       </a>
