@@ -77,7 +77,7 @@ Sistema web completo para gerenciamento de acervo de livros, incluindo funcional
 
 Coloque a pasta do projeto dentro de C:\xampp\htdocs\.
 
-2.Configure o Banco de Dados:
+2. **Configure o Banco de Dados:**
 
 Abra o PHPMyAdmin (http://localhost/phpmyadmin).
 
@@ -123,33 +123,33 @@ Vá na aba SQL e execute o script abaixo completo para criar o banco e popular c
 
 ---
 
-3.Verifique a Conexão:
+3. **Verifique a Conexão:**
 
 Abra o arquivo Back/db.php e confira se a senha do banco está correta (no XAMPP padrão é vazia '').
 
-4.Acesse o Sistema:
+4. **Acesse o Sistema:**
 
 Abra o navegador e digite: http://localhost/SoSeiQueLe/
 
 ## 📂 Estrutura do Projeto
 
-```bash
-SoSeiQueLe/
-├── index.html          # Tela de Login (Entrada do Sistema)
-├── Back/               # API (PHP)
-│   ├── db.php          # Conexão com Banco de Dados
-│   ├── criar.php       # Criar livro
-│   ├── listar.php      # Listar livros
-│   ├── ...             # Outros scripts PHP
-├── Front/              # Telas do Sistema
-│   └── src/
-│       ├── crud.html       # Painel Principal
-│       ├── registro.html   # Criar Conta
-│       └── perfil.html     # Editar Perfil
+  ```bash
+  SoSeiQueLe/
+  ├── index.html          # Tela de Login (Entrada do Sistema)
+  ├── Back/               # API (PHP)
+  │   ├── db.php          # Conexão com Banco de Dados
+  │   ├── criar.php       # Criar livro
+  │   ├── listar.php      # Listar livros
+  │   ├── ...             # Outros scripts PHP
+  ├── Front/              # Telas do Sistema
+  │   └── src/
+  │       ├── crud.html       # Painel Principal
+  │       ├── registro.html   # Criar Conta
+  │       └── perfil.html     # Editar Perfil
 
 ---
 
-##👤 Autores
+## 👤 Autores
 <table> <tr> <td align="center"> <a href="https://www.google.com/search?q=https://github.com/luanrichardsz"> <img src="https://www.google.com/search?q=https://github.com/luanrichardsz.png" width="100px;" alt="Foto do Luan Richards"/>
 
 
