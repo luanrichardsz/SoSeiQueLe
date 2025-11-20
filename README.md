@@ -83,43 +83,43 @@ Abra o PHPMyAdmin (http://localhost/phpmyadmin).
 
 Vá na aba SQL e execute o script abaixo completo para criar o banco e popular com dados:
 
-```bash
--- 1. Criação do Banco
-CREATE DATABASE IF NOT EXISTS soseiquele;
-USE soseiquele;
-
--- 2. Tabela de Usuários
-CREATE TABLE IF NOT EXISTS usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
-    sobrenome VARCHAR(50) NOT NULL,
-    data_nascimento DATE NOT NULL,
-    nome_usuario VARCHAR(50) NOT NULL UNIQUE,
-    senha VARCHAR(255) NOT NULL
-);
-
--- 3. Tabela de Livros
-CREATE TABLE IF NOT EXISTS livros (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(100) NOT NULL,
-    autor VARCHAR(100) NOT NULL,
-    ano_publicacao INT NOT NULL,
-    genero VARCHAR(50) NOT NULL,
-    preco DECIMAL(10, 2) NOT NULL
-);
-
--- 4. Dados Iniciais (Opcional)
-INSERT INTO livros (titulo, autor, ano_publicacao, genero, preco) VALUES 
-('Clean Code', 'Robert C. Martin', 2008, 'Técnico', 95.00),
-('O Senhor dos Anéis', 'J.R.R. Tolkien', 1954, 'Fantasia', 120.50),
-('Dom Casmurro', 'Machado de Assis', 1899, 'Romance', 45.90),
-('1984', 'George Orwell', 1949, 'Ficção', 39.90),
-('Harry Potter e a Pedra Filosofal', 'J.K. Rowling', 1997, 'Fantasia', 55.00),
-('Entendendo Algoritmos', 'Aditya Y. Bhargava', 2017, 'Técnico', 62.00),
-('Orgulho e Preconceito', 'Jane Austen', 1813, 'Romance', 35.00),
-('Duna', 'Frank Herbert', 1965, 'Ficção', 75.90),
-('O Hobbit', 'J.R.R. Tolkien', 1937, 'Fantasia', 49.90),
-('Padrões de Projeto', 'Erich Gamma', 1994, 'Técnico', 150.00);```
+    ```bash
+    -- 1. Criação do Banco
+    CREATE DATABASE IF NOT EXISTS soseiquele;
+    USE soseiquele;
+    
+    -- 2. Tabela de Usuários
+    CREATE TABLE IF NOT EXISTS usuarios (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(50) NOT NULL,
+        sobrenome VARCHAR(50) NOT NULL,
+        data_nascimento DATE NOT NULL,
+        nome_usuario VARCHAR(50) NOT NULL UNIQUE,
+        senha VARCHAR(255) NOT NULL
+    );
+    
+    -- 3. Tabela de Livros
+    CREATE TABLE IF NOT EXISTS livros (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        titulo VARCHAR(100) NOT NULL,
+        autor VARCHAR(100) NOT NULL,
+        ano_publicacao INT NOT NULL,
+        genero VARCHAR(50) NOT NULL,
+        preco DECIMAL(10, 2) NOT NULL
+    );
+    
+    -- 4. Dados Iniciais (Opcional)
+    INSERT INTO livros (titulo, autor, ano_publicacao, genero, preco) VALUES 
+    ('Clean Code', 'Robert C. Martin', 2008, 'Técnico', 95.00),
+    ('O Senhor dos Anéis', 'J.R.R. Tolkien', 1954, 'Fantasia', 120.50),
+    ('Dom Casmurro', 'Machado de Assis', 1899, 'Romance', 45.90),
+    ('1984', 'George Orwell', 1949, 'Ficção', 39.90),
+    ('Harry Potter e a Pedra Filosofal', 'J.K. Rowling', 1997, 'Fantasia', 55.00),
+    ('Entendendo Algoritmos', 'Aditya Y. Bhargava', 2017, 'Técnico', 62.00),
+    ('Orgulho e Preconceito', 'Jane Austen', 1813, 'Romance', 35.00),
+    ('Duna', 'Frank Herbert', 1965, 'Ficção', 75.90),
+    ('O Hobbit', 'J.R.R. Tolkien', 1937, 'Fantasia', 49.90),
+    ('Padrões de Projeto', 'Erich Gamma', 1994, 'Técnico', 150.00);
 
 ---
 
