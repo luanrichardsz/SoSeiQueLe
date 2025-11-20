@@ -119,7 +119,7 @@ INSERT INTO livros (titulo, autor, ano_publicacao, genero, preco) VALUES
 ('Orgulho e Preconceito', 'Jane Austen', 1813, 'Romance', 35.00),
 ('Duna', 'Frank Herbert', 1965, 'Ficção', 75.90),
 ('O Hobbit', 'J.R.R. Tolkien', 1937, 'Fantasia', 49.90),
-('Padrões de Projeto', 'Erich Gamma', 1994, 'Técnico', 150.00);
+('Padrões de Projeto', 'Erich Gamma', 1994, 'Técnico', 150.00);```
 
 ---
 
