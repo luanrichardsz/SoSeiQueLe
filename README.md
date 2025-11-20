@@ -133,30 +133,48 @@ Abra o navegador e digite: http://localhost/SoSeiQueLe/
 
 ## 📂 Estrutura do Projeto
 
-  ```bash
-  SoSeiQueLe/
-  ├── index.html          # Tela de Login (Entrada do Sistema)
-  ├── Back/               # API (PHP)
-  │   ├── db.php          # Conexão com Banco de Dados
-  │   ├── criar.php       # Criar livro
-  │   ├── listar.php      # Listar livros
-  │   ├── ...             # Outros scripts PHP
-  ├── Front/              # Telas do Sistema
-  │   └── src/
-  │       ├── crud.html       # Painel Principal
-  │       ├── registro.html   # Criar Conta
-  │       └── perfil.html     # Editar Perfil
+    ```bash
+    SoSeiQueLe/
+    ├── index.html          # Tela de Login (Entrada do Sistema)
+    ├── Back/               # API (PHP)
+    │   ├── db.php          # Conexão com Banco de Dados
+    │   ├── criar.php       # Criar livro
+    │   ├── listar.php      # Listar livros
+    │   ├── ...             # Outros scripts PHP
+    ├── Front/              # Telas do Sistema
+    │   └── src/
+    │       ├── crud.html       # Painel Principal
+    │       ├── registro.html   # Criar Conta
+    │       └── perfil.html     # Editar Perfil
 
 ---
 
-## 👤 Autores
-<table> <tr> <td align="center"> <a href="https://www.google.com/search?q=https://github.com/luanrichardsz"> <img src="https://www.google.com/search?q=https://github.com/luanrichardsz.png" width="100px;" alt="Foto do Luan Richards"/>
+## ## 🤝 Colaboradores
 
+  Este projeto é o resultado do trabalho e da dedicação de uma equipe incrível. Conheça quem fez o **SoSeiQueLe** acontecer:
 
-<sub> <b>Luan Richards</b> </sub> </a> </td> <td align="center"> <a href="https://www.google.com/search?q=https://github.com/USUARIO_DA_MARIANA"> <img src="https://www.google.com/search?q=https://github.com/USUARIO_DA_MARIANA.png" width="100px;" alt="Foto da Mariana Mendes"/>
-
-
-<sub> <b>Mariana Mendes</b> </sub> </a> </td> <td align="center"> <a href="https://www.google.com/search?q=https://github.com/USUARIO_DO_KAUA"> <img src="https://www.google.com/search?q=https://github.com/USUARIO_DO_KAUA.png" width="100px;" alt="Foto do Kãua Felipe"/>
-
-
-<sub> <b>Kãua Felipe</b> </sub> </a> </td> </tr> </table>
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/MariTronix">
+        <img src="https://github.com/MariTronix.png" width="100px;" alt="Foto de Mariana Mendes no GitHub"/>
+        <br />
+        <sub><b>Mariana Mendes</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Marcopolojr360](https://github.com/luanrichardsz">
+        <img src="http://github.com/luanrichardsz" width="100px;" alt="Foto de Luan Richard no GitHub"/>
+        <br />
+        <sub><b>Luan Richard</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="(https://github.com/KauaOliveira17">
+        <img src="https://github.com/KauaOliveira17.png" width="100px;" alt="Foto de Kauã Felipe no GitHub"/>
+        <br />
+        <sub><b>Kauã Felipe</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
