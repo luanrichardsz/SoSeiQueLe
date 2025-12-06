@@ -13,7 +13,6 @@
             .navbar-custom { background: #fff; padding: 12px 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-radius: 12px; }
             .card-custom { border-radius: 15px; padding: 30px; background: #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); max-width: 600px; margin: 0 auto; }
             
-            /* Responsividade */
             @media (max-width: 991px) {
                 body { padding: 20px; }
                 .navbar-custom { flex-direction: column; gap: 15px; }
@@ -95,7 +94,7 @@
         </div>
 
         <script>
-            const API_URL = 'http://localhost/SoSeiQueLe/Back';
+            const API_URL = '../..//Back';
             const usuarioLogadoId = localStorage.getItem('usuario_id'); 
 
             if (!usuarioLogadoId) {

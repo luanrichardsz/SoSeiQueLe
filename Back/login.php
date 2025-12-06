@@ -17,7 +17,6 @@
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             
             if(password_verify($data->senha, $row['senha'])){
-                // CORREÇÃO IMPORTANTE: Agora devolvemos também o ID
                 echo json_encode([
                     "message" => "Login sucesso", 
                     "usuario" => $row['nome'], 
